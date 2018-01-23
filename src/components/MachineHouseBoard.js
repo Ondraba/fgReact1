@@ -1,15 +1,20 @@
 
 import React, { Component } from 'react';
 import Footer from './Footer';
+import PeopleList from './PeopleList';
+import AddPerson from './AddPerson';
+import PeopleCounter from './PeopleCounter';
 
 class MachineHouseBoard extends Component {
     constructor(props){
         super(props);
         this.state = { building: 'FG Machine House', locality: 'Prague', count: '', isEmpty: false, peopleInside: ['Kuba Trousil','Kuba Kosar'] };
+
+        this.addNewPerson = this.addNewPerson.bind(this);
     }
 
-    addPerson(){
-
+    addNewPerson(person){
+        this.setState({peopleInside: [...this.state.peopleInside, person]})
     }
 
     renderTheBoard({building, locality}){
@@ -19,18 +24,10 @@ class MachineHouseBoard extends Component {
                    <b>Budova</b>: {building}   
                 </p>
                 <p>
-                  <b> Lokalita</b>: {locality}   
+                  <b>Lokalita</b>: {locality}   
                 </p>
             </div>
         )
-    }
-
-    renderThePeople({peopleInside}){
-        return peopleInside.map((item, index) =>{
-            return (
-                <p key={item.index}>{index + 1}.{item}</p>      
-            )
-        })
     }
 
     render(){
@@ -40,15 +37,21 @@ class MachineHouseBoard extends Component {
               {this.renderTheBoard(this.state)}
              </div>
              <div>
-                 {this.renderThePeople(this.state)}
+                 <PeopleList peopleInside={this.state.peopleInside}/>
+             </div>
+             <div>
+                 <AddPerson addNewPerson={this.addNewPerson}/>
+             </div>
+             <div>
+                 <PeopleCounter peopleInside={this.state.peopleInside}/>
              </div>
              <div>
                  <Footer building={this.state.building}/>
              </div>
         </div>
-        
         )   
     }
+
 }
 
 export default MachineHouseBoard
