@@ -17,7 +17,8 @@ class MachineHouseBoard extends Component {
         this.setState({peopleInside: [...this.state.peopleInside, person]})
     }
 
-    renderTheBoard({building, locality}){
+    renderTheBoard(){
+        let {building, locality} = this.state;
         return (
             <div>
                 <p>
@@ -34,7 +35,7 @@ class MachineHouseBoard extends Component {
         return(
          <div>
              <div>
-              {this.renderTheBoard(this.state)}
+              {this.renderTheBoard()}
              </div>
              <div>
                  <PeopleList peopleInside={this.state.peopleInside}/>
