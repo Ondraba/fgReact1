@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const AddPerson = (props) => {
 
-   function somethingLikeHandleSubmit(){
-    props.addNewPerson('Kopie vtíravýho Pepika')
+   const somethingLikeHandleSubmit =() => {
+    props.addNewPerson('Vtíravej Honza')
    }
 
    return(
@@ -11,7 +11,6 @@ const AddPerson = (props) => {
           <button onClick={somethingLikeHandleSubmit}>Add Person</button>
       </div>
    )
-        
 }
 
 export default AddPerson

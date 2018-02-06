@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
 
-const PeopleCounter = (props) => {
+import React from 'react';
 
-    function peopleCount(){
-        return props.peopleInside.length;
-    }
-
+const PeopleCounter = ({peopleInside}) => {
+   const peopleCount = peopleInside.length;
    return(
       <div>
-          <span style={(peopleCount() > 5) ? styles.red : styles.green}>V budově se nachází: {peopleCount()} osob </span>
+          <span style={(peopleCount > 5) ? styles.red : styles.green}>V budově se nachází: {peopleCount} osob </span>
       </div>
    )
-        
 }
 
 const styles = {
@@ -19,7 +15,7 @@ const styles = {
      color:'red'
     },
     green:{
-      color:'green'  
+      color:'green'
     }
   };
 

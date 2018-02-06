@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const Footer = (props) => {
-   return(
+export default ({building}) => {
+    return(
       <div>
-          <span>OBA(c) 2017 in {props.building}</span>
+          <span>OBA(c) 2017 in {building}</span>
       </div>
-   )
-        
+   )      
 }
 
-export default Footer

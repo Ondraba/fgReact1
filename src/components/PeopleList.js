@@ -1,21 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const PeopleList = (props) => {
-
-    function renderThePeople({peopleInside}){
-        return peopleInside.map((item, index) =>{
-            return (
-                <p key={index}>{index + 1}.{item}</p>      
-            )
-        })
-    }
-
+const PeopleList = ({peopleInside}) => {
    return(
     <div>
-     {renderThePeople(props)}
+     {peopleInside.map((item, index) => <p key={index}>{index + 1}.{item}</p>)} 
     </div>
    )
-        
 }
-
 export default PeopleList

@@ -8,7 +8,7 @@ import PeopleCounter from './PeopleCounter';
 class MachineHouseBoard extends Component {
     constructor(props){
         super(props);
-        this.state = { building: 'FG Machine House', locality: 'Prague', count: '', isEmpty: false, peopleInside: ['Kuba Trousil','Kuba Kosar'] };
+        this.state = { building: 'FG Machine House', locality: 'Prague', count: '', isEmpty: false, peopleInside: ['Kuba Trousil','Radek Chroust'] };
 
         this.addNewPerson = this.addNewPerson.bind(this);
     }
@@ -17,43 +17,40 @@ class MachineHouseBoard extends Component {
         this.setState({peopleInside: [...this.state.peopleInside, person]})
     }
 
-    renderTheBoard(){
-        let {building, locality} = this.state;
-        return (
-            <div>
-                <p>
-                   <b>Budova</b>: {building}   
-                </p>
-                <p>
-                  <b>Lokalita</b>: {locality}   
-                </p>
-            </div>
-        )
-    }
-
     render(){
+        let {building, locality, peopleInside} = this.state;
+
         return(
          <div>
-             <div>
-              {this.renderTheBoard()}
-             </div>
-             <div>
-                 <PeopleList peopleInside={this.state.peopleInside}/>
-             </div>
-             <div>
-                 <AddPerson addNewPerson={this.addNewPerson}/>
-             </div>
-             <div>
-                 <PeopleCounter peopleInside={this.state.peopleInside}/>
-             </div>
-             <div>
-                 <Footer building={this.state.building}/>
-             </div>
+            <div className="fg-info">
+                <p>
+                    <b>Budova</b>: {building}
+                </p>
+                <p>
+                    <b>Lokalita</b>: {locality}
+                </p>
+            </div>
+            
+            <div>
+                <PeopleList peopleInside={peopleInside}/>
+            </div>
+
+            <div>
+                <AddPerson addNewPerson={this.addNewPerson}/>
+            </div>
+
+            <div>
+                <PeopleCounter peopleInside={peopleInside}/>
+            </div>
+
+            <div>
+                <Footer building={building}/>
+            </div>
+
         </div>
-        )   
+        )
     }
 
 }
 
 export default MachineHouseBoard
-
