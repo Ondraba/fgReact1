@@ -13,6 +13,10 @@ class MachineHouseBoard extends Component {
         this.addNewPerson = this.addNewPerson.bind(this);
     }
 
+    componentDidMount(){
+        this.setState({peopleInside: [...this.state.peopleInside, 'Namountenej Eda']})
+    }
+
     addNewPerson(person){
         this.setState({peopleInside: [...this.state.peopleInside, person]})
     }

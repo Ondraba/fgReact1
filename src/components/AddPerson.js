@@ -1,14 +1,9 @@
 import React from 'react';
 
-const AddPerson = (props) => {
-
-   const somethingLikeHandleSubmit =() => {
-    props.addNewPerson('Vtíravej Honza')
-   }
-
+const AddPerson = ({addNewPerson}) => {
    return(
       <div>
-          <button onClick={somethingLikeHandleSubmit}>Add Person</button>
+          <button onClick={()=>addNewPerson('Vtíravej Honza')}>Add Person</button>
       </div>
    )
 }
